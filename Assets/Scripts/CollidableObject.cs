@@ -1,15 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CollidableObject : MonoBehaviour
 {
-public bool isSafe;
-public bool isLog;
-public bool isTurtle;
+    public bool isSafe;
+    public bool isLog;
+    public bool isTurtle;
 
-public bool isHomeBay;
-public bool isOccupied = false;
+    public bool isHomeBay;
+    public bool isSafeSpot = true;
+    public bool isOccupied = false;
 
     Rect playerRect;
     Vector2 playerSize;
@@ -19,7 +18,8 @@ public bool isOccupied = false;
     Vector2 collidableObjectSize;
     Vector2 collidableObjectPosition;
 
-    public bool IsColliding (GameObject playerGameObject)
+
+    public bool IsColliding(GameObject playerGameObject)
     {
         playerSize = playerGameObject.transform.GetComponent<SpriteRenderer>().size;
         playerPosition = playerGameObject.transform.localPosition;
@@ -31,7 +31,7 @@ public bool isOccupied = false;
 
         collidableObjectRect = new Rect(collidableObjectPosition.x - collidableObjectSize.x / 2, collidableObjectPosition.y - collidableObjectSize.y / 2, collidableObjectSize.x, collidableObjectSize.y);
 
-        if (collidableObjectRect.Overlaps(playerRect,true))
+        if (collidableObjectRect.Overlaps(playerRect, true))
         {
             return true;
         }

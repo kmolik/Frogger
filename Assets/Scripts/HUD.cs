@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    public Image life1, life2, life3, timeband, goScreen, buttonMenu, scoreMenu;
+    public Image life1, life2, life3, timeband, goScreen, buttonMenu, scoreMenu, winScreen;
 
     public static int CurrentScore = 0;
 
@@ -13,13 +11,13 @@ public class HUD : MonoBehaviour
 
     void Start()
     {
-      goScreen.enabled = false;
-      scoreText.text = CurrentScore.ToString();
+        goScreen.enabled = false;
+        scoreText.text = CurrentScore.ToString();
     }
 
     void Update()
     {
-        
+
     }
 
     public void UpdatePlayerLivesHUD(int playerHealth)
@@ -49,14 +47,11 @@ public class HUD : MonoBehaviour
                 life2.enabled = false;
                 life3.enabled = false;
                 goScreen.enabled = true;
+                DestroyFrog();
                 break;
         }
     }
 
-    public void EndMenu()
-    {
-        
-    }
 
     public void AddPionts()
     {
@@ -69,6 +64,10 @@ public class HUD : MonoBehaviour
     {
         CurrentScore = 0;
         scoreText.text = CurrentScore.ToString();
+    }
+    public void DestroyFrog()
+    {
+        Destroy(GameObject.FindWithTag("Frog"));
     }
 
 }
