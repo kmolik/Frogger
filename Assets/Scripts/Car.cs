@@ -20,17 +20,17 @@ public class Car : MonoBehaviour
         if (moveRight)
         {
             pos.x += Vector2.right.x * moveSpeed * Time.deltaTime;
-            if (pos.x >= 7)
+            if (pos.x >= 9)
             {
-                pos.x = -7;
+                pos.x = -9;
             }
         }
         else
         {
             pos.x += Vector2.left.x * moveSpeed * Time.deltaTime;
-            if (pos.x <= -7)
+            if (pos.x <= -9)
             {
-                pos.x = 7;
+                pos.x = 9;
             }
         }
 

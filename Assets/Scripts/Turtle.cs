@@ -16,7 +16,7 @@ public class Turtle : MonoBehaviour
     public float moveSpeed = 5.0f;
     public bool moveRight = true;
 
-    private readonly float playAreaWidth = 12f;
+    private readonly float playAreaWidth = 14f;
 
     public bool shouldDive = false, shouldSurface = true, didDive = false, didSurface = false;
     private float surfaceTime = 5f;

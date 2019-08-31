@@ -6,7 +6,7 @@ public class Log : MonoBehaviour
     public float moveSpeed = 5.0f;
     public bool moveRight = true;
 
-    private readonly float playAreaWidth = 12f;
+    private readonly float playAreaWidth = 14f;
 
     void Update()
     {
