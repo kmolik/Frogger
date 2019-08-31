@@ -37,4 +37,9 @@ public class CollidableObject : MonoBehaviour
         }
         return false;
     }
+
+    public void ResetSafePointNode()
+    {
+        isSafeSpot = true;
+    }
 }

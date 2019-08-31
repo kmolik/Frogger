@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HUD : MonoBehaviour
 {
-    public Image life1, life2, life3, timeband, goScreen, buttonMenu, scoreMenu, winScreen;
+    public Image life1, life2, life3, timeband, goScreen, winScreen;
+
+    public Button restartBtn, quitBtn;
 
     public static int CurrentScore = 0;
 
@@ -11,6 +14,7 @@ public class HUD : MonoBehaviour
 
     void Start()
     {
+        winScreen.enabled = false;
         goScreen.enabled = false;
         scoreText.text = CurrentScore.ToString();
     }
@@ -48,6 +52,7 @@ public class HUD : MonoBehaviour
                 life3.enabled = false;
                 goScreen.enabled = true;
                 DestroyFrog();
+                ResetPoints();
                 break;
         }
     }
@@ -57,6 +62,7 @@ public class HUD : MonoBehaviour
     {
         CurrentScore += 100;
         scoreText.text = CurrentScore.ToString();
+        WinCondition();
 
     }
 
@@ -70,4 +76,16 @@ public class HUD : MonoBehaviour
         Destroy(GameObject.FindWithTag("Frog"));
     }
 
+    public void WinCondition()
+    {
+        if (CurrentScore == 500)
+        {
+            winScreen.enabled = true;
+            DestroyFrog();
+        }
+        else
+        {
+            winScreen.enabled = false;
+        }
+    }
 }

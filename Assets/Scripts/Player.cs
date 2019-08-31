@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     private Vector2 originalPosition;
 
     private HUD hud;
-    private readonly CollidableObject collidableobject;
+    public CollidableObject collidableobject;
 
     public float gameTime = 30;
 
@@ -86,7 +86,6 @@ public class Player : MonoBehaviour
                 pos += Vector2.left;
             }
         }
-
         transform.localPosition = pos;
     }
 
@@ -160,9 +159,7 @@ public class Player : MonoBehaviour
 
                             hud.AddPionts();
                         }
-
                         ResetPosition();
-
                     }
                     if (isSafe)
                     {
@@ -171,11 +168,7 @@ public class Player : MonoBehaviour
                             hud.AddPionts();
                             collidableObject.isSafeSpot = false;
                         }
-
-
                     } 
-                    
-
                     break;
                 }
                 else
@@ -203,7 +196,7 @@ public class Player : MonoBehaviour
         health -= 1;
     }
 
-    void ResetTimer()
+     void ResetTimer()
     {
         gameTimer = 0;
 
@@ -214,7 +207,6 @@ public class Player : MonoBehaviour
         transform.localPosition = originalPosition;
         transform.GetComponent<SpriteRenderer>().sprite = playerUp;
     }
-
     void PlayerDied()
     {
         ResetTimer();
@@ -222,10 +214,8 @@ public class Player : MonoBehaviour
         ResetPosition();
         
     }
-
     void GameOver()
     {
         hud.ResetPoints();
     }
-
 }
